@@ -6,6 +6,8 @@ Write("Введите размер матрицы через пробел: ");
 string[] sizeS = ReadLine().Split(' ',StringSplitOptions.RemoveEmptyEntries);
 int rows = int.Parse(sizeS[0]);
 int columns = int.Parse(sizeS[1]);
+int[,] ar = GetRandomArray(rows, columns);
+PrintArray(ar);
 
 
 int[,] GetRandomArray(int row, int column)
@@ -19,4 +21,16 @@ int[,] GetRandomArray(int row, int column)
         }
     }
     return result;
+}
+
+void PrintArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            Write($"{array[i,j]} ");            
+        }
+        WriteLine();
+    }    
 }
